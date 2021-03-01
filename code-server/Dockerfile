@@ -17,33 +17,13 @@ RUN apt-get update && \
 
 # Shell: ZSH
 RUN apt install -y zsh && \
-    chmod +x ./install_zsh.sh && \
-    ZSH=~/.zsh && \
-    ./install_zsh.sh --unattended && \
     chsh -s /bin/zsh
 
-# Homebrew
-RUN mkdir /home/linuxbrew /config/.cache/Homebrew /config/.config/git && \
-    touch /config/.profile && \
-    chown -R $DEFAULT_USER:$DEFAULT_USER /home/linuxbrew /config/.cache/Homebrew /config/.config/git /config/.profile
-
-USER $DEFAULT_USER
-RUN yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
-    echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /config/.profile && \
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) && \
-    brew tap git-time-metric/gtm && \
-    brew install gtm starship
-
-# SEC: ClamAV
-RUN apt install -y clamav clamav-daemon && \
-    freshclam
-
-# SEC: Hosts
-RUN wget https://someonewhocares.org/hosts/hosts -O /etc/hosts
+RUN curl -fsSL https://starship.rs/install.sh | bash -s -- --yes && \
+    echo 'eval "$(starship init zsh)"' > /config/.zshrc
 
 # APT: Cleanup
 RUN apt-get clean
 
 # EXPOSE RUNTIME PORTS
 EXPOSE 8443
-# 5000-5010 8000-8010
