@@ -32,8 +32,6 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/cfg/setup/config.deb.tx
 apt update
 apt install -y caddy
 
-cp code-server/Caddyfile /etc/caddy/Caddyfile
-
 # Compose code-server
 docker-compose -f code-server/docker-compose.yaml up --detach
 #DEBUG sudo -H SUDO_PASSWORD=$SUDO_PASSWORD CODE_PASSWORD=$CODE_PASSWORD docker-compose -f code-server/docker-compose.yaml up --detach
