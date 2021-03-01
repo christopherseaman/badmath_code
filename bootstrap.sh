@@ -36,6 +36,4 @@ cp code-server/Caddyfile /etc/caddy/Caddyfile
 
 # Compose code-server
 docker-compose -f code-server/docker-compose.yaml up --detach
-
-
 #DEBUG sudo -H SUDO_PASSWORD=$SUDO_PASSWORD CODE_PASSWORD=$CODE_PASSWORD docker-compose -f code-server/docker-compose.yaml up --detach

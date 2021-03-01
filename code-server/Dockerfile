@@ -1,6 +1,10 @@
 FROM linuxserver/code-server:amd64-latest
 # ARG DOCKER_HOST_GID
 # ARG DEFAULT_USER
+ENV PASSWORD=$CODE_PASSWORD
+ENV SUDO_PASSWORD=$SUDO_PASSWORD
+
+COPY config /config
 
 # Update: System Packages
 RUN apt-get update && \
