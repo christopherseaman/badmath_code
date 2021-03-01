@@ -1,0 +1,20 @@
+---
+version: "2.1"
+services:
+  code-server:
+    image: ghcr.io/linuxserver/code-server
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Americas/Los_Angeles
+      - PASSWORD=$CODE_PASSWORD #optional
+      # - HASHED_PASSWORD= #optional
+      - SUDO_PASSWORD=$SUDO_PASSWORD #optional
+      # - SUDO_PASSWORD_HASH= #optional
+      # - PROXY_DOMAIN=code.badmath.org #optional
+    # volumes:
+      # - /path/to/appdata/config:/config
+    ports:
+      - 8443:8443
+    restart: unless-stopped

@@ -1,0 +1,4 @@
+# code.($SITE_ADDRESS) {
+code.badmath.org {
+    reverse_proxy 127.0.0.1:8443   
+}
