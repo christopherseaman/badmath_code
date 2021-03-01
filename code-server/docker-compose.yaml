@@ -11,8 +11,8 @@ services:
       - TZ=Americas/Los_Angeles
       - PASSWORD=$CODE_PASSWORD #optional
       - SUDO_PASSWORD=$SUDO_PASSWORD #optional
-    # volumes:
-      # - ./config:/config
+    volumes:
+      - ./config:/config
     ports:
       - 8443:8443
     restart: unless-stopped
