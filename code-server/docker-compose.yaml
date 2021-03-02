@@ -3,7 +3,8 @@ version: "2.1"
 services:
   code-server:
     build: .
-    image: ghcr.io/linuxserver/code-server
+    # image: ghcr.io/linuxserver/code-server
+    image: gcr.io/${PROJECT_ID}/${REPO_DEPLOYED}:v${IMAGE_TIMESTAMP}
     container_name: code-server
     environment:
       - PUID=1000

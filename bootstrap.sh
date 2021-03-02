@@ -23,15 +23,6 @@ add-apt-repository \
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
 
-
-
-# Caddy
-apt install -y debian-keyring debian-archive-keyring apt-transport-https
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/cfg/gpg/gpg.155B6D79CA56EA34.key' | apt-key add -
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/cfg/setup/config.deb.txt?distro=debian&version=any-version' | tee -a /etc/apt/sources.list.d/caddy-stable.list
-apt update
-apt install -y caddy
-
 # Compose code-server
-docker-compose -f code-server/docker-compose.yaml up --detach
-#DEBUG sudo -H SUDO_PASSWORD=$SUDO_PASSWORD CODE_PASSWORD=$CODE_PASSWORD docker-compose -f code-server/docker-compose.yaml up --detach
+docker-compose -f code-server/docker-compose.yaml up --build --detach
+#DEBUG sudo -H SUDO_PASSWORD=$SUDO_PASSWORD CODE_PASSWORD=$CODE_PASSWORD docker-compose -f code-server/docker-compose.yaml up --build --detach

@@ -6,10 +6,10 @@ COPY config /config
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt install -y dialog apt-utils && \
-    apt install -y ansible apt-transport-https build-essential ca-certificates chromium-browser ffmpeg gnupg-agent htop iputils-ping libffi-dev libssl-dev python3 python3-dev python3-pip jupyter ranger software-properties-common sshpass systemd tree unzip vim wget youtube-dl
+    apt install -y python3 jupyter python3-pip
+    # && \
+    # apt install -y ansible apt-transport-https build-essential ca-certificates chromium-browser ffmpeg gnupg-agent htop iputils-ping libffi-dev libssl-dev python3 python3-dev python3-pip jupyter ranger software-properties-common sshpass systemd tree unzip vim wget youtube-dl
 
-# NPM: Packages
-# RUN npm install -g webpack-cli create-react-app gatsby gulp netlify-cli
 
 # Shell: ZSH
 RUN apt install -y zsh && \
