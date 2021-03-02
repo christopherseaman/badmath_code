@@ -10,8 +10,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Americas/Los_Angeles
-      - PASSWORD=$CODE_PASSWORD #optional
-      - SUDO_PASSWORD=$SUDO_PASSWORD #optional
+      - PASSWORD=$CODE_PASSWORD
+      - SUDO_PASSWORD=$SUDO_PASSWORD
     volumes:
       - ./config:/config
     ports:
