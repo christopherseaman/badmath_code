@@ -13,7 +13,9 @@ RUN apt-get update && \
 
 RUN chsh -s /bin/bash
 
-# Shell: ZSH
+# Shell: Starship on BASH
+RUN curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+
 # RUN apt install -y zsh && \
 #     chsh -s /bin/zsh
 
