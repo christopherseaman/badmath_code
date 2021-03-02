@@ -5,7 +5,8 @@ services:
     build: .
     # image: ghcr.io/linuxserver/code-server
     image: gcr.io/${PROJECT_ID}/${REPO_DEPLOYED}:latest
-    container_name: code-server
+    # container_name: code-server
+    container_name: badmath_code
     environment:
       - PUID=1000
       - PGID=1000
