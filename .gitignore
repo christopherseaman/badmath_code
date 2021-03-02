@@ -2,3 +2,5 @@
 .local
 .config
 .DS_Store
+config/data/CachedExtensionVSIXs
+config/data/logs
