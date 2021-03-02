@@ -4,7 +4,7 @@ services:
   code-server:
     build: .
     # image: ghcr.io/linuxserver/code-server
-    image: gcr.io/${PROJECT_ID}/${REPO_DEPLOYED}:v${IMAGE_TIMESTAMP}
+    image: gcr.io/${PROJECT_ID}/${REPO_DEPLOYED}:latest
     container_name: code-server
     environment:
       - PUID=1000
