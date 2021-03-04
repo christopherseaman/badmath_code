@@ -15,9 +15,25 @@ services:
       - ./code-server/config:/config
     ports:
       - 8443:8443
+    networks:
+      - web
     restart: unless-stopped
   traefik:
     image: traefik
-    container_name: traefik_cop
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - web
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.toml:/traefik.toml
+      - ./traefik/acme.json:/acme.json
+    container_name: traefik
+
+networks:
+  web:
+    external: true
+   
 #TODO finish the yaml
