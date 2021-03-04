@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   code-server:
-    image: ghcr.io/linuxserver/code-server
+    image: linuxserver/code-server
     # image: gcr.io/${PROJECT_ID}/${REPO_DEPLOYED}:latest\
     container_name: badmath_code
     environment:
@@ -12,7 +12,12 @@ services:
       - PASSWORD=$CODE_PASSWORD
       - SUDO_PASSWORD=$SUDO_PASSWORD
     volumes:
-      - ./config:/config
+      - ./code-server/config:/config
     ports:
       - 8443:8443
     restart: unless-stopped
+  traefik:
+    image: traefik/traefik
+    container_name: traefik
+    volumes:
+#TODO finish the yaml
