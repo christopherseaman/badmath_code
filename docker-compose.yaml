@@ -17,7 +17,7 @@ services:
       - 8443:8443
     restart: unless-stopped
   traefik:
-    image: traefik/traefik
-    container_name: traefik
+    image: traefik
+    container_name: traefik_cop
     volumes:
 #TODO finish the yaml
