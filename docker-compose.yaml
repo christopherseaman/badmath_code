@@ -13,10 +13,16 @@ services:
       - SUDO_PASSWORD=$SUDO_PASSWORD
     volumes:
       - ./code-server/config:/config
-    ports:
-      - 8443:8443
+    expose:
+      - '8443'
     networks:
       - web
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.code.frontend.rule=Host:code.sqrl.ly"
+      - "traefik.code.port=8443"
+      - "traefik.code.protocol=http"
     restart: unless-stopped
   traefik:
     image: traefik
