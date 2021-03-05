@@ -16,7 +16,6 @@ services:
       - '8443'
     networks:
       - web
-      - default
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
@@ -34,7 +33,6 @@ services:
       - '3000'
     networks:
       - web
-      - default
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
