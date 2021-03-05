@@ -37,9 +37,6 @@ services:
       - "traefik.public.frontend.rule=Host:sqrl.ly"
       - "traefik.public.port=80"
       - "traefik.public.protocol=http"
-      - "traefik.secure.frontend.rule=Host:sqrl.ly"
-      - "traefik.secure.port=3000"
-      - "traefik.secure.protocol=https"
   traefik:
     image: traefik:v1.7
     restart: always
