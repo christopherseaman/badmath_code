@@ -3,8 +3,7 @@ version: "2.1"
 services:
   code-server:
     image: linuxserver/code-server
-    # image: gcr.io/${PROJECT_ID}/${REPO_DEPLOYED}:latest\
-    container_name: badmath_code
+    container_name: sqrlly_code
     environment:
       - PUID=1000
       - PGID=1000
@@ -27,7 +26,7 @@ services:
   web:
     image: nginx
     restart: unless-stopped
-    container_name: badmath_web
+    container_name: sqrlly_www
     volumes:
       - ./nginx/web:/web
     expose:
@@ -39,7 +38,7 @@ services:
       - "traefik.public.port=80"
       - "traefik.public.protocol=http"
       - "traefik.secure.frontend.rule=Host:sqrl.ly"
-      - "traefik.secure.port=443"
+      - "traefik.secure.port=3000"
       - "traefik.secure.protocol=https"
   traefik:
     image: traefik:v1.7
@@ -54,9 +53,8 @@ services:
       - ./traefik/traefik.toml:/traefik.toml
       - ./traefik/acme.json:/acme.json
     container_name: traefik
-
 networks:
   web:
     external: true
    
-#TODO finish the yaml
+
