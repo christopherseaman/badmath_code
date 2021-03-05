@@ -9,13 +9,13 @@ defaultEntryPoints = ["https","http"]
     [entryPoints.http.redirect]
     entryPoint = "https"
   [entryPoints.https]
-  address = ":443"
-    [entryPoints.http.redirect]
-    entryPoint = "https"
-    regex = "^http://www.sqrl.ly/(.*)"
-    replacement = "http://sqrl.ly/$1"
-    permanent = true
+  address = ":443
   [entryPoints.https.tls]
+   # [entryPoints.https.redirect]
+   # entryPoint = "https"
+   # regex = "^http://www.sqrl.ly/(.*)"
+   # replacement = "http://sqrl.ly/$1"
+   # permanent = true
 
 [retry]
 
