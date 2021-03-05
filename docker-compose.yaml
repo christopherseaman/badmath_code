@@ -24,8 +24,16 @@ services:
       - "traefik.code.port=8443"
       - "traefik.code.protocol=http"
     restart: unless-stopped
+#   web:
+#     image: nginx
+#     restart: unless-stopped
+#     container_name: badmath_web
+#     volumes:
+#       - ./nginx/web:/web
+#     expose:
+#       - '3000'
   traefik:
-    image: traefik
+    image: traefik:v1.7
     restart: always
     ports:
       - 80:80
