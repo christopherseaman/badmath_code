@@ -22,7 +22,7 @@ services:
       - "traefik.enable=true"
       - "traefik.code.frontend.rule=Host:code.sqrl.ly"
       - "traefik.code.port=8443"
-      - "traefik.code.protocol=https"
+      - "traefik.code.protocol=http"
     restart: unless-stopped
   web:
     image: nginx
