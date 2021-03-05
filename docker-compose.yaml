@@ -16,6 +16,7 @@ services:
       - '8443'
     networks:
       - web
+      - default
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
@@ -31,6 +32,9 @@ services:
       - ./nginx/public:/usr/share/nginx/html
     expose:
       - '3000'
+    networks:
+      - web
+      - default
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
