@@ -1,5 +1,4 @@
 FROM linuxserver/code-server:amd64-latest
-# FROM gcr.io/silicon-shape-277704/badmath_code:latest
 
 COPY config /config
 
@@ -7,20 +6,14 @@ COPY config /config
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt install -y dialog apt-utils && \
-    apt install -y python3 jupyter 
-    # python3-pip && \
-    # apt install -y ansible apt-transport-https build-essential ca-certificates chromium-browser ffmpeg gnupg-agent htop iputils-ping libffi-dev libssl-dev python3 python3-dev python3-pip jupyter ranger software-properties-common sshpass systemd tree unzip vim wget youtube-dl
+    apt install -y python3 jupyter python3-pip fuse 
 
 RUN chsh -s /bin/bash
+RUN pip3 install dbxfs && \
+    dbxfs dropbox
 
 # Shell: Starship on BASH
 RUN curl -fsSL https://starship.rs/install.sh | bash -s -- -y
-
-# RUN apt install -y zsh && \
-#     chsh -s /bin/zsh
-
-# RUN curl -fsSL https://starship.rs/install.sh | bash -s -- --yes && \
-#     echo 'eval "$(starship init zsh)"' > /config/.zshrc
 
 # APT: Cleanup
 RUN apt-get clean
