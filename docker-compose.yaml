@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
     container_name: sqrlly_www
     volumes:
-      - ./nginx/web:/web
+      - ./nginx/public:/usr/share/nginx/html
     expose:
       - '3000'
     labels:
