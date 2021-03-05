@@ -38,7 +38,7 @@ services:
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
-      - "traefik.public.frontend.rule=Host:sqrl.ly,www.sqrl.ly"
+      - "traefik.public.frontend.rule=Host:sqrl.ly"
       - "traefik.public.port=80"
       - "traefik.public.protocol=http"
   traefik:
