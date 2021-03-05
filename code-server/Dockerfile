@@ -8,7 +8,6 @@ RUN apt-get update && \
     apt install -y dialog apt-utils && \
     apt install -y python3 jupyter python3-pip fuse 
 
-RUN chsh -s /bin/bash
 # RUN pip3 install dbxfs && \
 #     dbxfs dropbox
 
