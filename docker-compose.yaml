@@ -22,16 +22,25 @@ services:
       - "traefik.enable=true"
       - "traefik.code.frontend.rule=Host:code.sqrl.ly"
       - "traefik.code.port=8443"
-      - "traefik.code.protocol=http"
+      - "traefik.code.protocol=https"
     restart: unless-stopped
-#   web:
-#     image: nginx
-#     restart: unless-stopped
-#     container_name: badmath_web
-#     volumes:
-#       - ./nginx/web:/web
-#     expose:
-#       - '3000'
+  web:
+    image: nginx
+    restart: unless-stopped
+    container_name: badmath_web
+    volumes:
+      - ./nginx/web:/web
+    expose:
+      - '3000'
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.public.frontend.rule=Host:sqrl.ly"
+      - "traefik.public.port=80"
+      - "traefik.public.protocol=http"
+      - "traefik.secure.frontend.rule=Host:sqrl.ly"
+      - "traefik.secure.port=443"
+      - "traefik.secure.protocol=https"
   traefik:
     image: traefik:v1.7
     restart: always
