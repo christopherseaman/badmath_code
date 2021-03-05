@@ -11,6 +11,11 @@ defaultEntryPoints = ["https","http"]
   [entryPoints.https]
   address = ":443"
   [entryPoints.https.tls]
+  [entryPoints.http.redirect]
+    entryPoint = "https"
+    regex = "^https://localhost/(.*)"
+    replacement = "https://mydomain/$1"
+    permanent = true
 
 [retry]
 
