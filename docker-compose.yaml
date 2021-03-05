@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   code-server:
-    image: linuxserver/code-server
+    image: sqrlly/sqrlly_code:latest
     container_name: sqrlly_code
     environment:
       - PUID=1000
