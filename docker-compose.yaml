@@ -19,7 +19,7 @@ services:
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
-      - "traefik.code.frontend.rule=Host:code.sqrl.ly"
+      - "traefik.code.frontend.rule=Host:code.sqrl.ly,code.badmath.org"
       - "traefik.code.port=8443"
       - "traefik.code.protocol=http"
     restart: unless-stopped
