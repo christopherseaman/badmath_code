@@ -9,7 +9,7 @@ services:
       - PGID=1000
       - TZ=Americas/Los_Angeles
       - PASSWORD=$CODE_PASSWORD
-      - SUDO_PASSWORD=$SUDO_PASSWORD
+#       - SUDO_PASSWORD=$SUDO_PASSWORD
     volumes:
       - ./code-server/config:/config
     expose:
