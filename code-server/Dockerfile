@@ -5,11 +5,8 @@ COPY config /config
 # Update: System Packages
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt install -y dialog apt-utils && \
-    apt install -y python3 jupyter python3-pip fuse 
-
-# RUN pip3 install dbxfs && \
-#     dbxfs dropbox
+    apt install -y dialog apt-utils python3 python3-pip fuse 
+    # jupyter
 
 # Shell: Starship on BASH
 RUN curl -fsSL https://starship.rs/install.sh | bash -s -- -y
